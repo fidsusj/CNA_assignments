@@ -1,2 +1,24 @@
 \section{Problem 1-2 Average Degree of a Growing Network}
 
+
+Consider the following properties of the network at time t = T .
+
+\begin{enumerate}
+	\item What is the total number of nodes N?
+	
+	In each time step one node is added to the network. That is why $N = T$
+	
+	\item What is the total number of links L?
+	
+	For t=1 no links exist. For every node also a link is added. That is why $L = T - 1$
+	
+	\item What is the average degree <k>?
+	
+	The average degree is defined for an undirected graph as $<k> = \frac{2L}{N} $
+	After inserting the values from above: $<k> = \frac{2*(T-1)}{T} = \frac{2T-2}{T} = T - \frac{2}{T} $
+	
+	\item What is the average degree in the limit T -> infinity?
+	
+	When inserting infinity in the formula above, the second term ($\frac{2}{T}$) becomes irrelevant. The remaining term $T$ is going to infinity. Consequently the average degree also goes to infinity.
+	
+\end{enumerate}
