@@ -1,24 +1,22 @@
 \section{Problem 1-2 Average Degree of a Growing Network}
 
-
-Consider the following properties of the network at time t = T .
+Consider the following properties of the network at time $t=T$.
 
 \begin{enumerate}
-	\item What is the total number of nodes N?
+	\item What is the total number of nodes $N$?
 	
-	In each time step one node is added to the network. That is why $N = T$
+	In each time step one node is added to the network. That is why $N=T$
 	
-	\item What is the total number of links L?
+	\item What is the total number of links $L$?
 	
-	For t=1 no links exist. For every node also a link is added. That is why $L = T - 1$
+	For $t=1$ no links exist. For every node also a link is added. That is why $L=T-1$
 	
-	\item What is the average degree <k>?
+	\item What is the average degree $\langle k \rangle$?
 	
-	The average degree is defined for an undirected graph as $<k> = \frac{2L}{N} $
-	After inserting the values from above: $<k> = \frac{2*(T-1)}{T} = \frac{2T-2}{T} = T - \frac{2}{T} $
+	The average degree is defined for an undirected graph as $\langle k \rangle = \frac{2L}{N}$. After inserting the values from above: $\langle k \rangle = \frac{2(T-1)}{T} = \frac{2T-2}{T} = 2 - \frac{2}{T} $
 	
-	\item What is the average degree in the limit T -> infinity?
+	\item What is the average degree in the limit $T \rightarrow \infty$?
 	
-	When inserting infinity in the formula above, the second term ($\frac{2}{T}$) becomes irrelevant. The remaining term $T$ is going to infinity. Consequently the average degree also goes to infinity.
+	When $T \rightarrow \infty$, the second term $\frac{2}{T}$ becomes irrelevant. Consequently the average degree becomes $\langle k \rangle = 2$ for $T \rightarrow \infty$.
 	
 \end{enumerate}
