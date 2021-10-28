@@ -23,7 +23,7 @@
 	
 	\item Is the graph bipartite? Explain your answer by giving 2-3 sentences.
 	
-	Yes, the graph is bipartite. It can be divided into the two disjoint sets $U = {A, D}$ and $V = {B, C, E}$. The nodes connect these two sets, but never connect two nodes in one set.
+	Yes, the graph is bipartite. It can be divided into the two disjoint sets $U = {A, D}$ and $V = {B, C, E}$. The nodes connect these two sets, but never connect two nodes in one set (independent set property).
 	
 	\begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}] 
 	\node[main, fill={rgb:red,4;green,2;yellow,1}] (A) {$A$}; 
@@ -67,15 +67,15 @@
 		\hline
 		(A, B) \\ 
 		\hline
-		(A, E) \\ 
-		\hline
 		(A, C) \\ 
+		\hline
+		(A, E) \\ 
 		\hline
 		(B, D) \\ 
 		\hline
-		(E, D) \\ 
-		\hline
 		(C, D) \\ 
+		\hline
+		(D, E) \\ 
 		\hline
 	\end{tabular}
 	
