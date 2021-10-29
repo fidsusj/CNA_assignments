@@ -1,5 +1,13 @@
 \section{Problem 1-1 Adjacency Matrix}
 
+Given is the graph G with five nodes $N = \{A, B, C, D, E\}$ and the adjacency matrix $A_G = \begin{pmatrix}
+	0 & 1 & 1 & 0 & 1 \\
+	1 & 0 & 0 & 1 & 0 \\
+	1 & 0 & 0 & 1 & 0 \\
+	0 & 1 & 1 & 0 & 1 \\
+	1 & 0 & 0 & 1 & 0 \\
+\end{pmatrix}$.
+
 \begin{enumerate}
 	\item Is the corresponding graph G directed or undirected? Justify your answer.
 	
@@ -23,7 +31,7 @@
 	
 	\item Is the graph bipartite? Explain your answer by giving 2-3 sentences.
 	
-	Yes, the graph is bipartite. It can be divided into the two disjoint sets $U = {A, D}$ and $V = {B, C, E}$. The nodes connect these two sets, but never connect two nodes in one set (independent set property).
+	Yes, the graph is bipartite. It can be divided into the two disjoint sets $U = \{A, D\}$ and $V = \{B, C, E\}$. The nodes connect these two sets, but never connect two nodes in one set (independent set property).
 	
 	\begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}] 
 	\node[main, fill={rgb:red,4;green,2;yellow,1}] (A) {$A$}; 
