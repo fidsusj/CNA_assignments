@@ -8,3 +8,16 @@ This repository contains the assignments for the course Complex Network Analysis
 - Patrick Günther
 - Felix Hausberger
 - Nils Krehl
+
+## Environment
+
+    conda env create
+    conda activate cna
+
+In case you need to add additional dependencies, adapt the environment.yml file and run:
+
+    conda env update
+
+List all installed dependencies with their versions:
+
+    conda list
