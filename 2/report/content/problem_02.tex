@@ -1,6 +1,6 @@
-\section{Problem 2-2 Three-Dimensional Lattice Network}
+\section{Problem 2-2 Three-Dimensional Lattice Net\-work}
 
-Consider an undirected network $G = (V,E)$ with $N = l^3$ nodes corresponding to points on a regular three-dimensional lattice $\{1,...,l\}x\{1,...,l\}x\{1,...,l\}$. Two nodes $x$ and $y$ are connected if and only if $d(x,y) = 1$, where $d(x,y)$ denotes the Euclidean distance. A visualization of such a graph is shown in the following image:
+Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding to points on a regular three-dimensional lattice $\{1,...,\ell\}\times\{1,...,\ell\}\times\{1,...,\ell\}$. Two nodes $x$ and $y$ are connected if and only if $d(x,y) = 1$, where $d(x,y)$ denotes the Euclidean distance. A visualization of such a graph is shown in the following image:
 
 \begin{figure}[ht]
 	\centering
@@ -11,21 +11,38 @@ Consider an undirected network $G = (V,E)$ with $N = l^3$ nodes corresponding to
 
 \begin{enumerate}
 	\item What is the diameter $d_{max}$ of the graph?
+	\vspace{0.25cm}
 	
-	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front (1,1,1) to the right lower edge in the back (l,l,l). The diameter is therefore $d_{max} = l^3$.
+	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front $(1,1,1)$ to the right lower edge in the back $(\ell,\ell,\ell)$. The diameter is therefore $d_{max} = \ell^3$.
 	
-	\item Provide an expression (in terms of N and/or l) for the probability $p_i$ that a randomly chosen node has degree $i$. You may assume that $l >= 3$. What are the consequences for $N -> infinity$?
+	\item Provide an expression (in terms of $N$ and/or $\ell$) for the probability $p_i$ that a randomly chosen node has degree $i$. You may assume that $\ell \geq 3$. What are the consequences for $N \rightarrow \infty$?
+	\vspace{0.25cm}
 	
 	Due to the fact that there are three different types of nodes (inner nodes, corner nodes and border nodes) with differing degree three different expressions are provided in the following.
 	
-	First the distribution of the different node types is clarified:
-	\begin{itemize}
-		\item inner node: 6 edges; $(l-2)^2$ nodes
-		\item corner node: 3 edges; $8$ nodes
-		\item border node: 4 edges; $6*l^2 - 8 - 6*l = 6*l - 8$ nodes (nodes on all six sides: $6*l^2$; substract all edge nodes: $-8$; count each outer edge only once: $-6*l$)
-	\end{itemize}
+	First the distribution of the different node types is clarified in table \ref{tab:node_distribution}:
+	\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l|l}
+		\hline
+		\rowcolor{lightgray}
+		Node type & edges & nodes \\ 
+		\hline
+		inner node    & 6 & $(\ell-2)^2$ \\
+		\hline
+		corner node    & 3 & $8$ \\
+		\hline
+		border node    & 4  & $6*\ell^2 - 8 - 6*\ell = 6*\ell - 8$ \\
+		& & (nodes on all six sides: $6*\ell^2$ \\
+		& & substract all edge nodes: $-8$ \\
+		& & count each outer edge only once: $-6*\ell$) \\
+		\hline
+	\end{tabular}
+	\caption{}
+	\label{tab:node_distribution}
+	\end{table}
 
-	Secondly the expressions for the probability distribution are derived based on the following formula with $N=l^3$:
+	Secondly the expressions for the probability distribution are derived based on the following formula with $N=\ell^3$ and $p=\frac{number of nodes}{\ell^3}$:
 	
 	\begin{equation}
 	p_k = {{N-1}\choose{k}} * p^k * (1-p)^{N-1-k}
@@ -33,22 +50,23 @@ Consider an undirected network $G = (V,E)$ with $N = l^3$ nodes corresponding to
 	
 	For inner nodes with $i=6$:
 	\begin{equation}
-	p_6 = {{l^3-1}\choose{6}} * ({\frac{(l-2)^2}{l^3}})^6 * (1-{\frac{(l-2)^2}{l^3}})^{l^3-1-6}
+	p_6 = {{\ell^3-1}\choose{6}} * (\frac{(\ell-2)^2}{\ell^3})^6 * (1-{\frac{(\ell-2)^2}{\ell^3}})^{\ell^3-1-6}
 	\end{equation}
 	
 	For corner nodes with $i=3$:
 	\begin{equation}
-	p_3 = {{l^3-1}\choose{3}} * ({\frac{8}{l^3}})^3 * (1-{\frac{8}{l^3}})^{l^3-1-3}
+	p_3 = {{\ell^3-1}\choose{3}} * ({\frac{8}{\ell^3}})^3 * (1-{\frac{8}{\ell^3}})^{\ell^3-1-3}
 	\end{equation}
 	
 	For border nodes with $i=4$:
 	\begin{equation}
-	p_4 = {{l^3-1}\choose{4}} * ({\frac{6l-8}{l^3}})^4 * (1-{\frac{6l-8}{l^3}})^{l^3-1-4}
+	p_4 = {{\ell^3-1}\choose{4}} * ({\frac{6\ell-8}{\ell^3}})^4 * (1-{\frac{6\ell-8}{\ell^3}})^{\ell^3-1-4}
 	\end{equation}
 	
-	For $N -> infinity$ also $l -> infinity$, that is why the probability for an inner node increases and the probability for a corner or a border node decreases.
+	For $N \rightarrow \infty$ also $\ell \rightarrow \infty$, that is why the probability for an inner node increases and the probability for a corner or a border node decreases.
 	
 	\item What is (i) the clustering coefficient of a node i and (ii) the average clustering coefficient of this network?
+	\vspace{0.25cm}
 	
 	(i) the clustering coefficient of a node i
 	
@@ -56,7 +74,7 @@ Consider an undirected network $G = (V,E)$ with $N = l^3$ nodes corresponding to
 	\begin{equation}
 	C_i = \frac{2*L_i}{k_i * (k_i-1)}
 	\end{equation}
-	with $L_i$ being the number of edges between the neighbors of the node and $k_i$ being the number of edges from the chosen node.
+	with $L_i$ being the number of edges between the neighbors of the node and $k_i$ being the degree from the chosen node.
 	
 	The clustering coefficient is 0 for all types of nodes, because there are no edges (diagonal edges between the nodes) between the neighbors of the node ($L_i = 0$).
 	
@@ -67,12 +85,13 @@ Consider an undirected network $G = (V,E)$ with $N = l^3$ nodes corresponding to
 	<C> = \frac{1}{N} \sum_{i=1}^{N} C_i
 	\end{equation}
 	
-	As described in (i) the clustering coefficient is zero for all nodes. Consequently the average clustering coefficient is also zero.
+	As described in (i) the clustering coefficient is zero for all nodes. Con\-se\-quent\-ly the average clustering coefficient is also zero.
 	
-	\item Now assume we have a different three-dimensional lattice graph with nodes corresponding to points $\{1,...,l\}x\{1,...,l\}x\{1,...,l\}$, where two nodes $x$ and $y$ are connected if and only if $d(x,y) <= 3$. How	does this change the average clustering coefficient in the limit $N -> infinity$?
+	\item Now assume we have a different three-dimensional lattice graph with nodes corresponding to points $\{1,...,\ell\}\times\{1,...,\ell\}\times\{1,...,\ell\}$, where two nodes $x$ and $y$ are connected if and only if $d(x,y) \leq 3$. How	does this change the average clustering coefficient in the limit $N \rightarrow \infty$?
+	\vspace{0.25cm}
 	
 	Now diagonal edges between the nodes are present. That is why the clustering coefficient is not zero any more.
 	
-	$ For N -> infinity <C> -> 0,5 $
+	$ For N \rightarrow \infty <C> \rightarrow 0,5 $
 	
 \end{enumerate}
