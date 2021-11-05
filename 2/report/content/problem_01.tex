@@ -4,7 +4,6 @@ Consider an Erdos-Renyi network with N = 80 nodes, connected to each other with 
 
 \begin{enumerate}
 	\item What is (i) the expected number of links in the graph and (ii) the expected degree of a node?
-	\vspace{0.25cm}
 	
 	(i) The expected number of links in the graph:
 	
@@ -23,7 +22,6 @@ Consider an Erdos-Renyi network with N = 80 nodes, connected to each other with 
 	The expected degree of a node in the network is 3.95.
 	
 	\item In which regime is the network?
-	\vspace{0.25cm}
 	
 	$\langle k \rangle$ is $3.95$,  thus greater than $1$ and not in the subcritical regime.
 	
@@ -32,7 +30,6 @@ Consider an Erdos-Renyi network with N = 80 nodes, connected to each other with 
 	This means that the network is in the \textbf{supercritical regime}.
 	
 	\item What is the probability to find exactly $L = 200$ links in the graph?
-	\vspace{0.25cm}
 	
 	\begin{equation}
 	p_L = {{\frac{N(N-1)}{2}} \choose {L}} p^L (1-p)^{(N(N-1)/2)-L}
@@ -45,7 +42,6 @@ Consider an Erdos-Renyi network with N = 80 nodes, connected to each other with 
 	The probability to find exactly 200 links in the graph is arround $1.26e^{-4}$.
 	
 	\item What is the probability that a node $i$ in the graph has degree $k_i = 5$ (using the binomial distribution)?
-	\vspace{0.25cm}
 	
 	\begin{equation}
 	p_k = {N - 1 \choose k} p^k (1-p)^{N-1-k}
@@ -58,13 +54,11 @@ Consider an Erdos-Renyi network with N = 80 nodes, connected to each other with 
 	The probability of a node $i$ having a degree of $5$ is $0.158$.
 	
 	\item Use maximum likelihood estimation to estimate the model parameters $(N, p)$ for the shown graph.
-	\vspace{0.25cm}
 	
-	\begin{table}[h!]
+	\begin{table}[]
 \centering
 \begin{tabular}{ll}
 \hline
-\rowcolor{lightgray}
 Node & Degree \\ \hline
 1    & 3      \\
 2    & 2      \\
@@ -83,17 +77,17 @@ Node & Degree \\ \hline
 \label{tab:node_degrees}
 \end{table}
 
-From Table \ref{tab:node_degrees} follows that the average degree of the network is $\langle k \rangle \approx 0.54$.
+From Table \ref{tab:node_degrees} follows that the average degree of the network is $\langle k \rangle \approx 1.83$.
 
 \begin{equation}
 \langle k \rangle = p(N-1)
 \end{equation}
 
 \begin{equation}
-p = \frac{\langle k \rangle}{N-1} = \frac{0.54}{12-1} \approx 0.049
+p = \frac{\langle k \rangle}{N-1} = \frac{1.83}{12-1} \approx 0.166
 \end{equation}
 
-The model parameters are $N = 12$ and $p = 0.049$.
+The model parameters are $N = 12$ and $p = 0.166$.
 	
 	
 \textbf{Alternative:}
