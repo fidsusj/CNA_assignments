@@ -13,22 +13,25 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	\item What is the diameter $d_{max}$ of the graph?
 	\vspace{0.25cm}
 	
-	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front $(1,1,1)$ to the right lower edge in the back $(\ell,\ell,\ell)$. The diameter is therefore $d_{max} = \ell^3$.
+	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front $(1,1,1)$ to the right lower edge in the back $(\ell,\ell,\ell)$. The diameter is therefore $d_{max} = 3\ell$.
 	
 	\item Provide an expression (in terms of $N$ and/or $\ell$) for the probability $p_i$ that a randomly chosen node has degree $i$. You may assume that $\ell \geq 3$. What are the consequences for $N \rightarrow \infty$?
 	\vspace{0.25cm}
 	
 	Due to the fact that there are three different types of nodes (inner nodes, corner nodes and border nodes) with differing degree three different expressions are provided in the following.
 	
+	\newpage
+	
 	First the distribution of the different node types is clarified in table \ref{tab:node_distribution}:
-	\begin{table}[h!]
+	
+	\begin{table}[h]
 	\centering
 	\begin{tabular}{l|l|l}
 		\hline
 		\rowcolor{lightgray}
 		Node type & edges & nodes \\ 
 		\hline
-		inner node    & 6 & $(\ell-2)^2$ \\
+		inner node    & 6 & $(\ell-2)^3$ \\
 		\hline
 		corner node    & 3 & $8$ \\
 		\hline
@@ -42,7 +45,7 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	\label{tab:node_distribution}
 	\end{table}
 
-	Secondly the expressions for the probability distribution are derived based on the following formula with $N=\ell^3$ and $p=\frac{number of nodes}{\ell^3}$:
+	Secondly the expressions for the probability distribution are derived based on the following formula with $N=\ell^3$ and $p=\frac{\#nodes}{\ell^3}$:
 	
 	\begin{equation}
 	p_k = {{N-1}\choose{k}} * p^k * (1-p)^{N-1-k}
@@ -82,16 +85,16 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	
 	The average clustering coefficient is defined as:
 	\begin{equation}
-	<C> = \frac{1}{N} \sum_{i=1}^{N} C_i
+	\langle C \rangle = \frac{1}{N} \sum_{i=1}^{N} C_i
 	\end{equation}
 	
 	As described in (i) the clustering coefficient is zero for all nodes. Con\-se\-quent\-ly the average clustering coefficient is also zero.
 	
-	\item Now assume we have a different three-dimensional lattice graph with nodes corresponding to points $\{1,...,\ell\}\times\{1,...,\ell\}\times\{1,...,\ell\}$, where two nodes $x$ and $y$ are connected if and only if $d(x,y) \leq 3$. How	does this change the average clustering coefficient in the limit $N \rightarrow \infty$?
+	\item Now assume we have a different three-dimensional lattice graph with nodes corresponding to points $\{1,...,\ell\}\times\{1,...,\ell\}\times\{1,...,\ell\}$, where two nodes $x$ and $y$ are connected if and only if $d(x,y) \leq \sqrt{3}$. How	does this change the average clustering coefficient in the limit $N \rightarrow \infty$?
 	\vspace{0.25cm}
 	
 	Now diagonal edges between the nodes are present. That is why the clustering coefficient is not zero any more.
 	
-	$ For N \rightarrow \infty <C> \rightarrow 0,5 $
+	For $N \rightarrow \infty$: $\langle C \rangle \rightarrow 0,5$.
 	
 \end{enumerate}
