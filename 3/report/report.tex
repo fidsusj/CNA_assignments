@@ -1,0 +1,162 @@
+% This template was initially provided by Dulip Withanage.
+% Modifications for the database systems research group
+% were made by Conny Junghans,  Jannik StrÃ¶tgen and Michael Gertz
+
+\documentclass[
+     12pt,         % font size
+     a4paper,      % paper format
+     BCOR10mm,     % binding correction
+     DIV14,        % stripe size for margin calculation
+     ]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% PACKAGES:
+
+% Use German
+\usepackage[english]{babel}
+% Input and font encoding
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+% Index-generation
+\usepackage{makeidx}
+% Embedding of URLs
+\usepackage{url}
+% Special \LaTex symbols (e.g. \BibTeX)
+%\usepackage{doc}
+% Include Graphic-files
+\usepackage{graphicx}
+% Include doc++ generated tex-files
+%\usepackage{docxx}
+% Fuer anderthalbzeiligen Textsatz
+\usepackage{setspace}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{hhline}
+\usepackage{highlight}
+\usepackage{amsmath}
+\usepackage{subcaption}
+
+\usepackage{biblatex}
+\bibliography{references.bib}
+
+% hyperrefs in the documents
+\PassOptionsToPackage{hyphens}{url}\usepackage[bookmarks=true,colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black,urlcolor=black]{hyperref}
+%\usepackage{hyperref}
+
+
+% CUSTOM:
+
+% For quotes:
+\usepackage{csquotes}
+
+% For Definitions:                   						
+\usepackage{amsthm}
+\usepackage[framemethod=tikz]{mdframed}
+
+% for graphs
+\usepackage{tikz} 
+
+%for math equations
+\usepackage{amsmath}
+
+\newtheoremstyle{defi}
+{\topsep}         % Abstand oben
+{\topsep}         % Abstand unten
+{\normalfont}     % Schrift des Bodys
+{0pt}             % Einschub der ersten Zeile
+{\bfseries}       % Darstellung von der Schrift in der ï¿½berschrift
+{:}               % Trennzeichen zwischen ï¿½berschrift und Body
+{.5em}            % Abstand nach dem Trennzeichen zum Body Text
+{\thmname{#3}}    % Name in eckigen Klammern
+\theoremstyle{defi}
+
+\newmdtheoremenv[
+hidealllines = true,       % Rahmen komplett ausblenden
+leftline = true,           % Linie links einschalten
+innertopmargin = 0pt,      % Abstand oben
+innerbottommargin = 4pt,   % Abstand unten
+innerrightmargin = 0pt,    % Abstand rechts
+linewidth = 3pt,           % Linienbreite
+linecolor = gray!40,       % Linienfarbe
+]{defStrich}{Definition}     % Name der des formats "defStrich"
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% OTHER SETTINGS:
+
+% Choose language
+\newcommand{\setlang}[1]{\selectlanguage{#1}\nonfrenchspacing}
+
+
+\begin{document}
+
+% TITLE:
+\pagenumbering{roman} 
+\begin{titlepage}
+
+\vspace*{1cm}
+\begin{center}
+\textbf{ 
+\Large Heidelberg University\\
+\smallskip
+\Large Institute of Computer Science\\
+\smallskip
+\Large Database Systems Research Group\\
+\smallskip
+}
+
+\vspace{3cm}
+
+\textbf{\large Lecture: Complex Network Analysis}
+
+\vspace{0.5cm}
+Prof. Dr. Michael Gertz
+
+\vspace{2cm}
+
+\vspace{0.5\baselineskip}
+{\huge
+\textbf{Assignment 1}
+}
+
+\textbf{\large Graph Theory and Networks in Python}
+\vspace{0.5cm}
+
+\url{https://github.com/nilskre/CNA_assignments}
+
+
+\end{center}
+
+\vfill 
+
+{\large
+\begin{tabular}[l]{ll}
+Team Member: & Patrick Günther, 3660886,\\
+  & Applied Computer Science\\
+  & rh269@stud.uni-heidelberg.de\\
+  & \\
+Team Member: & Felix Hausberger, 3661293,\\
+  & Applied Computer Science\\
+  & eb260@stud.uni-heidelberg.de\\
+  & \\
+Team Member: & Nils Krehl, 3664130,\\
+  & Applied Computer Science\\
+  & pu268@stud.uni-heidelberg.de\\
+  
+\end{tabular}
+}
+
+\end{titlepage}
+
+\newpage
+
+\pagenumbering{arabic}
+
+\input{content/problem.tex}
+
+\clearpage
+\pagenumbering{Roman}
+
+\end{document}
