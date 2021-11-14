@@ -1,40 +1,51 @@
 \section{Problem 3-2 Parametrized Random Networks}
+
+We now look at random networks in the $G(N,p)$ ensemble. Assume the link probability $p = \frac{a}{N^z}$, with $a > 0$ and $z \geq 0$, and $a$ and $z$ are independent of $N$.
+
 \begin{enumerate}
-	\item Determine the average degree.
-	We use the equation $\langle k \rangle = p(N-1)$:
+	\item Determine the \textit{average degree} $\langle k \rangle$ in the limit $N \rightarrow \infty$ for the following values of the parameters $a$ and $z$:
+
+	We use the equation $\langle k \rangle = p(N-1)$.
+	
 	\begin{itemize}
 		\item $a=0.5$,  $z=1$
 			\begin{equation}
 				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{0.5}{N}(N-1) =\lim\limits_{N \rightarrow \infty} 0.5 - \frac{0.5}{N} = 0.5
 			\end{equation}
 			
-			$\langle k \rangle = 0.5$ and $\langle k \rangle < 1$,, which means there is \textbf{no GC}. 
+			$\langle k \rangle = 0.5$ and $\langle k \rangle < 1$, which means there \textbf{is no GC}. 
 		\item $a=2$,  $z=1$
 			\begin{equation}
 				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{2}{N}(N-1) =\lim\limits_{N \rightarrow \infty} 2 - \frac{2}{N} = 2
 			\end{equation}
 			
-			$\langle k \rangle = 0.5$ and $\langle k \rangle > 1$,, which means there is a \textbf{GC}. 
+			$\langle k \rangle = 2$ and $\langle k \rangle > 1$, which means there \textbf{is a GC}. 
 		\item $a>0$,  $z=2$
 			\begin{equation}
 				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{a}{N^2}(N-1) =\lim\limits_{N \rightarrow \infty} \frac{a}{N} - \frac{a}{N^2} = 0
 			\end{equation}
 			
-			$\langle k \rangle = 0$ and $\langle k \rangle < 1$,, which means there is \textbf{no GC}. 
+			$\langle k \rangle = 0$ and $\langle k \rangle < 1$, which means there \textbf{is no GC}. 
 		\item $a>0$,  $z=0.5$
 			\begin{equation}
 				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{a}{\sqrt{N}}(N-1) =\lim\limits_{N \rightarrow \infty} a\sqrt{N} - \frac{a}{\sqrt{N}} = \infty
 			\end{equation}
 			
-			$\langle k \rangle = \infty$ and $\langle k \rangle > 1$,, which means there is a \textbf{GC}. 
+			$\langle k \rangle \rightarrow \infty$ and $\langle k \rangle > 1$, which means there \textbf{is a GC}. 
 	\end{itemize}
+
+	In which of the above cases does the random network contain a giant component in the limit $N \rightarrow \infty$?
 	
-	\item Determine the average degree.
+	See above.
+	
+	\item Given $G(N,p)$ with the link probability $p = \frac{a}{N^z}$ and the values of $a > 0$ and $z \geq 0$. Determine the average degree $\langle k \rangle$ in the limit $N \rightarrow \infty$.
+	
 	Again with $\langle k \rangle = p(N-1)$:
 	
 	\begin{equation}
 		\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{a}{N^z}(N-1) = \lim\limits_{N \rightarrow \infty} aN^{1-z} - \frac{a}{N^z}
 	\end{equation}
+	
 	This means:
   
 	\[
@@ -47,7 +58,7 @@
 
 	\item Determine the conditions on $a$ and $z$ for which these random networks are critical,  again in the limit $N \rightarrow \infty$.
 	
-	Networks are critical, if $\langle k \rangle = 1$
+	Networks are critical if $\langle k \rangle = 1$.
 	
 	We have this equation from the previous subtask: 
 	
