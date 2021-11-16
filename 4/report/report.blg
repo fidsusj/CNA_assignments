@@ -1,9 +1,9 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'report.blg'
-[64] biber:340> INFO - === Mo Nov 15, 2021, 17:58:43
+[63] biber:340> INFO - === Di Nov 16, 2021, 10:27:24
 [76] Biber.pm:415> INFO - Reading 'report.bcf'
-[137] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[142] Utils.pm:395> WARN - The file 'report.bcf' does not contain any citations!
-[149] bbl.pm:654> INFO - Writing 'report.bbl' with encoding 'latin1'
-[149] bbl.pm:757> INFO - Output to report.bbl
-[149] Biber.pm:128> INFO - WARNINGS: 1
+[136] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[141] Utils.pm:395> WARN - The file 'report.bcf' does not contain any citations!
+[147] bbl.pm:654> INFO - Writing 'report.bbl' with encoding 'latin1'
+[148] bbl.pm:757> INFO - Output to report.bbl
+[148] Biber.pm:128> INFO - WARNINGS: 1
