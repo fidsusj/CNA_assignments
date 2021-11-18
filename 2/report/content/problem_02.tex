@@ -15,7 +15,7 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	\item What is the diameter $d_{max}$ of the graph?
 	\vspace{0.25cm}
 	
-	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front $(1,1,1)$ to the right lower edge in the back $(\ell,\ell,\ell)$. The diameter is therefore $d_{max} = 3\ell$.
+	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front $(1,1,1)$ to the right lower edge in the back $(\ell,\ell,\ell)$. The diameter is therefore $d_{max} = 3(\ell-1)$ (-1, because the corner nodes are not counted twice).
 	
 	\item Provide an expression (in terms of $N$ and/or $\ell$) for the probability $p_i$ that a randomly chosen node has degree $i$. You may assume that $\ell \geq 3$. What are the consequences for $N \rightarrow \infty$?
 	\vspace{0.25cm}
@@ -67,7 +67,7 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	
 	For outer nodes with $i=5$:
 	\begin{equation*}
-		p_4 = {{\ell^3-1}\choose{5}} * ({\frac{6\ell^2 - 12(\ell - 2) - 8}{\ell^3}})^5 * (1-{\frac{6\ell^2 - 12(\ell - 2) - 8}{\ell^3}})^{\ell^3-1-5}
+		p_5 = {{\ell^3-1}\choose{5}} * ({\frac{6\ell^2 - 12(\ell - 2) - 8}{\ell^3}})^5 * (1-{\frac{6\ell^2 - 12(\ell - 2) - 8}{\ell^3}})^{\ell^3-1-5}
 	\end{equation*}
 	
 	For $N \rightarrow \infty$ also $\ell \rightarrow \infty$, that is why the probability for an inner node increases and the probability for a corner, edge or outer node decreases. This means the average degree converges to 6 (probability $p_k$ for $k=6$ converges to 1).
@@ -103,7 +103,7 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	
 	\begin{align*}
 		L_i = \frac{l_{inner}*n_{inner} + l_{edge}*n_{edge} + l_{corner}*n_{corner}}{2} \\
-		= \frac{16*6 + 10*12 + 6*8}{2}
+		= \frac{16*6 + 10*12 + 6*8}{2} = 132
 	\end{align*}
 	
 	\begin{equation*}
@@ -111,11 +111,11 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	\end{equation*}
 	
 	\begin{equation*}
-		C_i = \frac{2*L_i}{k_i * (k_i-1)}
+		C_i = \frac{2*L_i}{k_i * (k_i-1)} = \frac{2*132}{26 * (26-1)} = 0,41
 	\end{equation*}
 	
 	\begin{equation*}
-		\langle C \rangle \rightarrow 0,24
+		\langle C \rangle \rightarrow 0,41
 	\end{equation*}
 	
 \end{enumerate}
