@@ -1,0 +1,16 @@
+\section{Problem 4-2 Friendship Paradox}
+
+Let $p_k$ be the probability of a randomly chosen node to have the degree $k$.
+
+If we instead randomly choose an edge, let $q_k = \frac{1}{C} \cdot k \cdot p_k$ be the probability that a node at one of its ends has degree $k$, where $\frac{1}{C}$ is a normalization factor.
+
+\begin{enumerate}
+	\item Assuming that the network has a power-law degree distribution with $2 < \gamma< 3$, minimum degree $k_{min}$, and maximum degree $k_{max}$, show how to derive the normalization factor $C$.
+	
+	\item $q_k$ is also the probability that a randomly chosen node has a neighbor with degree $k$. Show how to compute the average degree of the neighbors of a randomly chosen node.
+	
+	\item Given a power-law degree distribution network, with $N = 10^4$, $\gamma = 2.3$, $k_{min} = 1$ and $k_{max} = 1000$. Compute the average degree of the neighbors of a randomly chosen node and compare this to $\langle k \rangle$.
+	
+	\item Try to explain the paradox of subtask 3, i.e., explain why on average, the neighbors of a node have more neighbors than the node itself?
+		
+\end{enumerate}

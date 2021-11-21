@@ -1,11 +1,11 @@
 \section{Problem 4-1 Power laws}
 
-Consider the degree distribution functions $p_k$ of the following two undirected networks:
+Consider the \textit{degree distribution functions $p_k$} of the following two undirected networks:
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{images/problem41_degree_distribution_networks.png}
-	\caption{A simple graph with 4 connected triples.}
+	\caption{Degree distribution of two networks.}
 	\label{distribution}
 \end{figure}
 
@@ -18,10 +18,13 @@ Consider the degree distribution functions $p_k$ of the following two undirected
 	\item A particular network is believed to have a degree distribution that follows a power law. A random sample of nodes is taken and their degrees are measured. The degrees of the first twenty nodes with degrees 10 or greater are: 
 	
 	16  17  10  26  13  14  28  45  10  12
+	
 	12  10  136  16  25  36  12  14  22  10
 	
 	For $K_{min} = 10$, estimate the exponent $\gamma$ of the power law using the estimation method presented in the lecture.
+	
 	Hint: you only have to estimate the exponent (see Slide 4-33)!
+	
 	Calculate the error $\sigma$ of your estimation using the equation $\sigma = \frac{\gamma - 1}{\sqrt{N}}$
 	
 	\vspace{0,75cm}
@@ -46,5 +49,6 @@ Consider the degree distribution functions $p_k$ of the following two undirected
 	\sigma = \frac{\gamma - 1}{\sqrt{N}} = \frac{-14,17 - 1}{\sqrt{20}} = -3,39
 	\end{equation*}
 	
+	Now, one would normally iteratively increase $K_min$ from $K_min = k_min$ to $K_min = k_max$ and then choose $K_min$ such that it minimizes the error $\sigma$. Then the resulting power law distribution would fit best to the real distribution. But as the task description states to execute this procedure only for $K_min = 10$, we stop here.
 
 \end{enumerate}
