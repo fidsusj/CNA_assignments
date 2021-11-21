@@ -7,10 +7,52 @@ If we instead randomly choose an edge, let $q_k = \frac{1}{C} \cdot k \cdot p_k$
 \begin{enumerate}
 	\item Assuming that the network has a power-law degree distribution with $2 < \gamma< 3$, minimum degree $k_{min}$, and maximum degree $k_{max}$, show how to derive the normalization factor $C$.
 	
+	As every probability distribution must add up to 100\%, we derive the following equation and solve for $C$.
+
+	\begin{equation}
+		\begin{split}
+		1 = \int_{k_{min}}^{k_{max}} q(k) \, dk = \int_{k_{min}}^{k_{max}} \frac{1}{C} \cdot k \cdot k^{-\gamma} \, dk \\
+		\Leftrightarrow C = \int_{k_{min}}^{k_{max}} k^{1-\gamma} \, dk = [\frac{1}{2-\gamma} k^{2-\gamma}]_{k_{min}}^{k_{max}} = \\
+		\frac{k_{max}^{2-\gamma} - k_{min}^{2-\gamma}}{2-\gamma}
+		\end{split}
+	\end{equation}
+	
 	\item $q_k$ is also the probability that a randomly chosen node has a neighbor with degree $k$. Show how to compute the average degree of the neighbors of a randomly chosen node.
+	
+	With $C = \frac{k_{max}^{2-\gamma} - k_{min}^{2-\gamma}}{2-\gamma}$ we receive
+	
+	\begin{equation}
+		q_k = \frac{(2-\gamma)k^{1-\gamma}}{k_{max}^{2-\gamma} - k_{min}^{2-\gamma}}
+	\end{equation}
+
+	We then calculate the $1^{st}$ moment of the probability distribution $q_k$:
+	
+	\begin{equation} \label{k_neighbors}
+		\begin{split}
+			\langle k \rangle = \int_{k_{min}}^{k_{max}} k \cdot q(k) \, dk = \int_{k_{min}}^{k_{max}} \frac{(2-\gamma)k^{2-\gamma}}{k_{max}^{2-\gamma} - k_{min}^{2-\gamma}} \, dk = \\
+			\frac{(2-\gamma)}{k_{max}^{2-\gamma} - k_{min}^{2-\gamma}} \frac{1}{(3-\gamma)} [k^{3-\gamma}]_{k_{min}}^{k_{max}} = \frac{(2-\gamma)}{k_{max}^{2-\gamma} - k_{min}^{2-\gamma}} \frac{k_{max}^{3-\gamma} - k_{min}^{3-\gamma}}{(3-\gamma)} 
+		\end{split}
+	\end{equation}
 	
 	\item Given a power-law degree distribution network, with $N = 10^4$, $\gamma = 2.3$, $k_{min} = 1$ and $k_{max} = 1000$. Compute the average degree of the neighbors of a randomly chosen node and compare this to $\langle k \rangle$.
 	
+	We now insert $\gamma = 2.3$, $k_{min} = 1$ and $k_{max} = 1000$ into Equation \ref{k_neighbors} and receive the average degree of for neighbors:
+	
+	\begin{equation}
+		\langle k_{neighbors} \rangle = \frac{(2-2.3)}{1000^{2-2.3} - 1^{2-2.3}} \frac{1000^{3-2.3} - 1^{3-2.3}}{(3-2.3)} \approx 61.23
+	\end{equation}
+
+	If where compare this to the average degree of the node itself using formula (4.9) and (4.17) from the slides of the lecture:
+	
+	\begin{equation} \label{k_neighbors}
+		\begin{split}
+			\langle k \rangle = (\gamma-1) k_{min}^{\gamma-1} \frac{k_{max}^{2-\gamma} - k_{min}^{2-\gamma}}{2-\gamma} = \\
+			(2.3-1) 1^{2.3-1} \frac{1000^{2-2.3} - 1^{2-2.3}}{2-2.3} \approx 3.79
+		\end{split}
+	\end{equation}
+	
 	\item Try to explain the paradox of subtask 3, i.e., explain why on average, the neighbors of a node have more neighbors than the node itself?
+	
+	This is known phenomenom from sociology that can be explained as individuals tend less to be friends with someone who has very few friends. Also one might argue that most persons are friends with at least on "hub" in society, a friend with very much other friends. This "hub" pushes the average friendship degree of ones friends even further away from ones own friendship degree (like an "outlier" in the sample). 
 		
 \end{enumerate}
