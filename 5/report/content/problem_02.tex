@@ -1,0 +1,87 @@
+\section{Problem 5-2 Role of Preferential Attachment}
+
+To verify that preferential attachment is a necessary ingredient to build a model of a scale-free network (cf. Slide 5-19), Barab\'{a}si and Albert also studied alternative versions of their algorithm. In the following, we want to explore how the omission of preferential attachment affects the degree distribution. Note that all tasks can be solved independently! If you skip a task, you may use the corresponding result without a proof.
+Assume a network is generated as follows: We start with $m_0$ initial nodes. Links between those nodes are chosen arbitrarily, as long as each node has a link. At each time step, a new node with $m$ links connecting to existing nodes is added. However, in contrast to the model presented in the lecture, the probability that a link of a new node connects to node $i$ does not depend on the degree $k_i$. We assume a uniform distribution, i.e., all nodes are equally likely and the probabilities are all equal to:
+
+\begin{equation} \label{eq:1}
+	\prod = \frac{1}{m_0 + t - 1}
+\end{equation}
+
+\begin{enumerate}
+	\item Show that each node $i$ acquires links according to the following differential equation:
+	
+	\begin{equation}  \label{eq:2}
+		\frac{dk_i}{dt} \approx \frac{m}{m_0 + t - 1}
+	\end{equation}
+	
+	Equation (5.2) in Slide 5-8 describes the rate at which existing node $i$ acquires links:
+	
+	\begin{equation}
+		\frac{dk_i}{dt} = 1 - (1 - \prod(k_i))^m \approx m \prod(k_i)
+	\end{equation}
+	
+	For $\prod$ we insert equation \ref{eq:1} from above:
+	
+	\begin{equation}
+		\frac{dk_i}{dt} = m \frac{1}{m_0 + t - 1} = \frac{m}{m_0 + t - 1}
+	\end{equation}
+	
+	\item Show that by separating variables and integrating, we obtain the following formula for $k_i(t)$:
+	
+	\begin{equation}
+		k_i(t) = m \biggl[1 + log(\frac{m_0 + t - 1}{m_0 + t_i - 1}) \biggr]
+	\end{equation}
+	
+	Hint: Note that node $i$ joins the network at time $t_i$ with $m$ links, i.e., $k_i(t_i) = m$.
+	
+	Start with equation \ref{eq:2}:
+	\begin{equation*}
+		\frac{dk_i}{dt} \approx \frac{m}{m_0 + t - 1}
+	\end{equation*}
+	
+	Move $dt$ to the other side by multiplying:
+	\begin{equation*}
+		dk_i \approx \frac{m}{m_0 + t - 1} * dt
+	\end{equation*}
+	
+	Integrate:
+	\begin{equation*}
+		\int_{m}^{k_i(t)} \frac{1}{k_i} \,dk_i = \int_{t_i}^{t} \frac{m}{m_0 + t - 1} \,dt
+	\end{equation*}
+	
+	Build Antiderivatives $F$ ($f(x) = \frac{n}{x} => F(x) = n * log(x)$) and solve integral by $\int_{a}^{b} f(x) \,dx = F(b) - F(a)$:
+	
+	\begin{equation*}
+		log(k_i(t)) - log(m) = (m * log(m_0 + t - 1)) - (m * log(m_0 + t_i - 1))
+	\end{equation*}
+	
+	Now extract $m$ on the right side and use log calculation rules $log(u) - log(v) = \frac{log(u)}{log(v)}$
+	
+	\begin{equation*}
+		log(k_i(t)) - log(m) = m * (\frac{log(m_0 + t - 1)}{log(m_0 + t_i - 1)})
+	\end{equation*}
+	
+	Move $log(m)$ to the other side by addition:
+	\begin{equation*}
+		log(k_i(t)) = m * (\frac{log(m_0 + t - 1)}{log(m_0 + t_i - 1)}) + log(m)
+	\end{equation*}
+
+	Remove log from both sides:
+	\begin{equation*}
+		k_i(t) = m * (\frac{log(m_0 + t - 1)}{log(m_0 + t_i - 1)}) + m
+	\end{equation*}
+
+	Reformulate:
+	\begin{equation*}
+		k_i(t) = m * \biggl[1 + log(\frac{m_0 + t - 1}{m_0 + t_i - 1})\biggr]
+	\end{equation*}
+	
+	\item Starting from the assertion $k_i(t) < k$, show that nodes have a degree smaller than $k$ exactly if:
+	
+	\begin{equation}
+		t_i > 1 - m_0 + (m_0 + t - 1) exp(1 - \frac{k}{m})
+	\end{equation}
+	
+	TODO
+
+\end{enumerate}
