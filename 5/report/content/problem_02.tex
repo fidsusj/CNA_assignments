@@ -14,6 +14,8 @@ Assume a network is generated as follows: We start with $m_0$ initial nodes. Lin
 		\frac{dk_i}{dt} \approx \frac{m}{m_0 + t - 1}
 	\end{equation}
 	
+	\hrule \relax
+	
 	Equation (5.2) in Slide 5-8 describes the rate at which existing node $i$ acquires links:
 	
 	\begin{equation}
@@ -26,13 +28,17 @@ Assume a network is generated as follows: We start with $m_0$ initial nodes. Lin
 		\frac{dk_i}{dt} = m \frac{1}{m_0 + t - 1} = \frac{m}{m_0 + t - 1}
 	\end{equation}
 	
+	\hrule \relax
+	
 	\item Show that by separating variables and integrating, we obtain the following formula for $k_i(t)$:
 	
-	\begin{equation}
+	\begin{equation} \label{eq:3}
 		k_i(t) = m \biggl[1 + log(\frac{m_0 + t - 1}{m_0 + t_i - 1}) \biggr]
 	\end{equation}
 	
 	Hint: Note that node $i$ joins the network at time $t_i$ with $m$ links, i.e., $k_i(t_i) = m$.
+	
+	\hrule \relax
 	
 	Start with equation \ref{eq:2}:
 	\begin{equation*}
@@ -76,12 +82,51 @@ Assume a network is generated as follows: We start with $m_0$ initial nodes. Lin
 		k_i(t) = m * \biggl[1 + log(\frac{m_0 + t - 1}{m_0 + t_i - 1})\biggr]
 	\end{equation*}
 	
+	\hrule \relax
+	
 	\item Starting from the assertion $k_i(t) < k$, show that nodes have a degree smaller than $k$ exactly if:
 	
-	\begin{equation}
+	\begin{equation} \label{eq:4}
 		t_i > 1 - m_0 + (m_0 + t - 1) exp(1 - \frac{k}{m})
 	\end{equation}
 	
-	TODO
+	\hrule \relax
+	
+	Starting from $k_i(t) < k$, insert equation \ref{eq:3} for $k_i(t)$:
+	\begin{equation*}
+		 m * \biggl[1 + log(\frac{m_0 + t - 1}{m_0 + t_i - 1})\biggr] < k
+	\end{equation*}
+	
+	Divide by m:
+	\begin{equation*}
+		1 + log(\frac{m_0 + t - 1}{m_0 + t_i - 1}) < \frac{k}{m}
+	\end{equation*}
+	
+	Substract $\frac{k}{m}$:
+	\begin{equation*}
+		1 - \frac{k}{m} + log(\frac{m_0 + t - 1}{m_0 + t_i - 1}) < 0
+	\end{equation*}
+	
+	Split log into two parts ($log(\frac{u}{v}) = log(u) - log(v)$):
+	\begin{equation*}
+		1 - \frac{k}{m} + log(m_0 + t - 1) - log(m_0 + t_i - 1) < 0
+	\end{equation*}
+	
+	Use exponential function ($k=log(c) <=> e^k=c$):
+	\begin{equation*}
+		e^{1 - \frac{k}{m}} + (m_0 + t - 1) - (m_0 + t_i - 1) < 0
+	\end{equation*}
+	
+	Move $t_i$ to the other side (first: $+ (m_0 + t_i - 1)$ second: $+1 - m_0$):
+	\begin{equation*}
+		e^{1 - \frac{k}{m}} + (m_0 + t - 1) < m_0 + t_i - 1
+	\end{equation*}
+	\begin{equation*}
+	1 - m_0 + (m_0 + t - 1) + e^{1 - \frac{k}{m}} < t_i
+	\end{equation*}
+	
+	Somewhere in our derivation there is still a fault left, because our final expression slightly differs from equation \ref{eq:4} (the exponential term is summed and not multiplied).
+	
+	\hrule \relax
 
 \end{enumerate}
