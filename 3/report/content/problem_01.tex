@@ -34,6 +34,10 @@
 		\caption{A simple graph with 4 connected triples.}
 		\label{triples}
 	\end{figure}
+
+	\begin{equation*}
+		A * A = A^2:
+	\end{equation*}
 	
 	\begin{equation*} \label{equation}
 		\begin{pmatrix}
@@ -56,20 +60,42 @@
 		\end{pmatrix}
 	\end{equation*}
 
-	Half the sum of all non-zero off-diagonal entries of the adjacency matrix $A^2$ equals exactly the number of connected triples, namely 4. 
+	Half the sum of all non-zero off-diagonal entries of the adjacency matrix $A^2$ equals exactly the number of connected triples, namely 4.
 	
-	\item Given a graph with its adjacency matrix $A$, find an expression for the global clustering coefficient in terms of the elements of the adjacency matrix. Notice that the number of triangles in a graph is \textbf{related} to the trace of the matrix $A^3$.
+	\begin{equation} \label{eq:number_triples}
+		\#connected \; triples = \frac{\sum_{i \neq j} A^2_{ij}}{2} = \frac{2+2+2+2}{2} = 4 
+	\end{equation}
+	
+	\item Given a graph with its adjacency matrix $A$, find an expression for the global clustering coefficient in terms of the elements of the adjacency matrix. Notice that the number of triangles in a graph is \textbf{related} to the trace (trace = sum of the matrix diagonal elements) of the matrix $A^3$.
 	
 	We know 
 	
-	\begin{equation*}
+	\begin{equation} \label{eq:global_clustering}
 		C = \frac{3 \cdot \#triangles}{\#connected \; triples}.
-	\end{equation*}
+	\end{equation}
 	
-	The also know that the relation between the number of triangles $n_{triangles}$ and the trace of $A^3$ is exactly $6 \cdot n_{triangles} = tr(A^3)$. Therefore it follows:
+	The $\#triangles$ is related to the trace of $A^3$.
+	\begin{itemize}
+		\item $A$ = adjacency matrix: Which nodes can be reached within distance 1?
+	 	\item $A^2$ = Which nodes can be reached within distance 2?
+	 	\item $A^3$ = Which nodes can be reached within distance 3?
+	\end{itemize}
+ 	
+ 	If one node can reach itself within distance 3 it forms a triangle. Therefore we look at the diagonal of the $A^3$ matrix (trace). Each triangle is counted three times (each node of the triangle = one count). That is why the result is divided by 3. Furthermore the graph is undirected and every triangle is counted twice, resulting in the division by 2.
+ 	A triangle begins and ends at the same node and consists of three edges. Finally we receive the following equation:
+ 	
+ 	\begin{equation}
+ 		\#triangles = \frac{tr(A^3)}{2 * 3} = \frac{tr(A^3)}{6}
+ 	\end{equation}
+	
+	The $\#connected \; triples$ is known from equation \ref{eq:number_triples}. Now we insert $\#connected \; triples$ and $\#triangles$ into the given equation \ref{eq:global_clustering}:
 	
 	\begin{equation*}
-		C = \frac{tr(A^3)}{\sum_{i \neq j} A^2_{ij}}
+		C = \frac{3 \cdot \#triangles}{\#connected \; triples}
+		= \frac{3 \cdot \frac{tr(A^3)}{6}}{\frac{\sum_{i \neq j} A^2_{ij}}{2}} 
+		= \frac{1 \cdot \frac{tr(A^3)}{2}}{\frac{\sum_{i \neq j} A^2_{ij}}{2}} 
+		= \frac{tr(A^3)}{2 \cdot \frac{\sum_{i \neq j} A^2_{ij}}{2}}
+		= \frac{tr(A^3)}{\sum_{i \neq j} A^2_{ij}}
 	\end{equation*}
 
 \end{enumerate}

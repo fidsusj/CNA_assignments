@@ -5,30 +5,36 @@ We now look at random networks in the $G(N,p)$ ensemble. Assume the link probabi
 \begin{enumerate}
 	\item Determine the \textit{average degree} $\langle k \rangle$ in the limit $N \rightarrow \infty$ for the following values of the parameters $a$ and $z$:
 
-	We use the equation $\langle k \rangle = p(N-1)$.
+	We use the equation $\langle k \rangle = p(N-1)$. Then we insert the given equation for p $\langle k \rangle = \frac{a}{N^z} (N-1)$. Now the different values for a and z can be inserted and their behavior for $N \rightarrow \infty$ can be observed:
 	
 	\begin{itemize}
 		\item $a=0.5$,  $z=1$
 			\begin{equation}
-				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{0.5}{N}(N-1) =\lim\limits_{N \rightarrow \infty} 0.5 - \frac{0.5}{N} = 0.5
+				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{0.5}{N}(N-1) = \lim\limits_{N \rightarrow \infty} \frac{0.5N - 0,5}{N} =\lim\limits_{N \rightarrow \infty} 0.5 - \frac{0.5}{N} = 0.5
 			\end{equation}
 			
 			$\langle k \rangle = 0.5$ and $\langle k \rangle < 1$, which means there \textbf{is no GC}. 
 		\item $a=2$,  $z=1$
 			\begin{equation}
-				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{2}{N}(N-1) =\lim\limits_{N \rightarrow \infty} 2 - \frac{2}{N} = 2
+				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{2}{N}(N-1) = \lim\limits_{N \rightarrow \infty} \frac{2N - 2}{N} =\lim\limits_{N \rightarrow \infty} 2 - \frac{2}{N} = 2
 			\end{equation}
 			
 			$\langle k \rangle = 2$ and $\langle k \rangle > 1$, which means there \textbf{is a GC}. 
 		\item $a>0$,  $z=2$
 			\begin{equation}
-				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{a}{N^2}(N-1) =\lim\limits_{N \rightarrow \infty} \frac{a}{N} - \frac{a}{N^2} = 0
+				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{a}{N^2}(N-1) = \lim\limits_{N \rightarrow \infty} \frac{aN - a}{N^2} =\lim\limits_{N \rightarrow \infty} \frac{a}{N} - \frac{a}{N^2} = 0
 			\end{equation}
 			
 			$\langle k \rangle = 0$ and $\langle k \rangle < 1$, which means there \textbf{is no GC}. 
 		\item $a>0$,  $z=0.5$
 			\begin{equation}
-				\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{a}{\sqrt{N}}(N-1) =\lim\limits_{N \rightarrow \infty} a\sqrt{N} - \frac{a}{\sqrt{N}} = \infty
+			\begin{split}
+				\langle k \rangle 
+				= \lim\limits_{N \rightarrow \infty} \frac{a}{N^{\frac{1}{2}}}(N-1) 
+				= \lim\limits_{N \rightarrow \infty} \frac{aN - a}{N^{\frac{1}{2}}}
+				= \lim\limits_{N \rightarrow \infty} aN^{1-\frac{1}{2}} - \frac{a}{\sqrt{N}}  \\
+				= \lim\limits_{N \rightarrow \infty} a\sqrt{N} - \frac{a}{\sqrt{N}} = \infty
+			\end{split}
 			\end{equation}
 			
 			$\langle k \rangle \rightarrow \infty$ and $\langle k \rangle > 1$, which means there \textbf{is a GC}. 
@@ -40,10 +46,13 @@ We now look at random networks in the $G(N,p)$ ensemble. Assume the link probabi
 	
 	\item Given $G(N,p)$ with the link probability $p = \frac{a}{N^z}$ and the values of $a > 0$ and $z \geq 0$. Determine the average degree $\langle k \rangle$ in the limit $N \rightarrow \infty$.
 	
-	Again with $\langle k \rangle = p(N-1)$:
+	Again with $\langle k \rangle = p(N-1) = \frac{a}{N^z} (N-1)$:
 	
 	\begin{equation}
-		\langle k \rangle = \lim\limits_{N \rightarrow \infty} \frac{a}{N^z}(N-1) = \lim\limits_{N \rightarrow \infty} aN^{1-z} - \frac{a}{N^z}
+		\langle k \rangle 
+		= \lim\limits_{N \rightarrow \infty} \frac{a}{N^z}(N-1)
+		= \lim\limits_{N \rightarrow \infty} \frac{aN - a}{N^z}
+		= \lim\limits_{N \rightarrow \infty} aN^{1-z} - \frac{a}{N^z}
 	\end{equation}
 	
 	This means:
@@ -51,8 +60,9 @@ We now look at random networks in the $G(N,p)$ ensemble. Assume the link probabi
 	\[
 		\langle k \rangle = 
 			\begin{cases}
-	   			\infty, & \text{if } z < 1\\
-	   			0, & \text{if }z \geq 1
+	   			\infty, & \text{if } z < 1 \\
+	   			a, & \text{if }z = 1 \\
+	   			0, & \text{if }z > 1
 			\end{cases}
 	\]
 
@@ -66,6 +76,7 @@ We now look at random networks in the $G(N,p)$ ensemble. Assume the link probabi
 		\langle k \rangle = \lim\limits_{N \rightarrow \infty} aN^{1-z} - \frac{a}{N^z}
 	\end{equation}
 	
+	For $N \rightarrow \infty$ the right term $\frac{a}{N^z}$ becomes irrelevant. To get a critical random network the first term needs to be 1.
 	Since here $1-z$ must be $0$ and $aN^0$ must be $1$, the conditions are:  $z$ must be $1$ and $a$ must be $1$.
 	
 \end{enumerate}
