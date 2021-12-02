@@ -102,30 +102,40 @@ Assume a network is generated as follows: We start with $m_0$ initial nodes. Lin
 		1 + log(\frac{m_0 + t - 1}{m_0 + t_i - 1}) < \frac{k}{m}
 	\end{equation*}
 	
-	Substract $\frac{k}{m}$:
+	Substract $1$:
 	\begin{equation*}
-		1 - \frac{k}{m} + log(\frac{m_0 + t - 1}{m_0 + t_i - 1}) < 0
+		log(\frac{m_0 + t - 1}{m_0 + t_i - 1}) < \frac{k}{m} - 1
 	\end{equation*}
 	
-	Split log into two parts ($log(\frac{u}{v}) = log(u) - log(v)$):
-	\begin{equation*}
-		1 - \frac{k}{m} + log(m_0 + t - 1) - log(m_0 + t_i - 1) < 0
-	\end{equation*}
+	%Split log into two parts ($log(\frac{u}{v}) = log(u) - log(v)$):
+	%\begin{equation*}
+%		log(m_0 + t - 1) - log(m_0 + t_i - 1) < \frac{k}{m} - 1
+%	\end{equation*}
 	
 	Use exponential function ($k=log(c) <=> e^k=c$):
 	\begin{equation*}
-		e^1 - e^{\frac{k}{m}} + (m_0 + t - 1) - (m_0 + t_i - 1) < 0
+		\frac{(m_0 + t - 1)}{(m_0 + t_i - 1)} < e^{(\frac{k}{m} - 1)}
 	\end{equation*}
 	
-	Move $t_i$ to the other side (first: $+ (m_0 + t_i - 1)$ second: $+1 - m_0$):
+	Multiply by $(m_0 + t_i - 1)$
 	\begin{equation*}
-		e^1 - e^{\frac{k}{m}} + (m_0 + t - 1) < m_0 + t_i - 1
-	\end{equation*}
-	\begin{equation*}
-	1 - m_0 + (m_0 + t - 1) + e^1 - e^{\frac{k}{m}} < t_i
+		(m_0 + t - 1) < e^{(\frac{k}{m} - 1)} * (m_0 + t_i - 1)
 	\end{equation*}
 	
-	Somewhere in our derivation there is still a fault left, because our final expression slightly differs from equation \ref{eq:4}.
+	Move $e^{(\frac{k}{m} - 1)}$ to the other side ($1 * e^x = 2 <=> 1 = 2 * e^{-x} $)
+	\begin{equation*}
+		(m_0 + t - 1) e^{-(\frac{k}{m} - 1)} < (m_0 + t_i - 1)
+	\end{equation*}
+	
+	Substract $m_0$ and add 1:
+	\begin{equation*}
+		1 - m_0 + (m_0 + t - 1) e^{1 - (\frac{k}{m})} < t_i
+	\end{equation*}
+	
+	Reformulate:
+	\begin{equation*}
+		t_i > 1 - m_0 + (m_0 + t - 1) exp(1 - \frac{k}{m})
+	\end{equation*}
 	
 	\hrule \relax
 
