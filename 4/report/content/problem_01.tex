@@ -13,7 +13,7 @@ Consider the \textit{degree distribution functions $p_k$} of the following two u
 	\item One of these networks is approximately scale-free, the other is not. Identify the scale-free network and explain how you came to your conclusion.
 	
 	Network b is is scale free. 
-	Figure \ref{distribution} shows the log-log plots of the degree distribution of the two networks a and b. For scale-free networks the degree distribution forms a straight line across the diagonal. This is given for network b.
+	Figure \ref{distribution} shows the log-log plots of the degree distribution of the two networks a and b. For scale-free networks the degree distribution forms a straight line across the diagonal $p_k \sim k^{-\gamma}$. This is given for network b.
 	
 	\item A particular network is believed to have a degree distribution that follows a power law. A random sample of nodes is taken and their degrees are measured. The degrees of the first twenty nodes with degrees 10 or greater are: 
 	
@@ -41,12 +41,12 @@ Consider the \textit{degree distribution functions $p_k$} of the following two u
 	\end{equation*}
 	
 	\begin{equation*}
-	\gamma \approx -14,17
+	\gamma \approx 2,531
 	\end{equation*}
 	
 	Based on $N$ and $\gamma$ the error $\sigma$ is calculated:
 	\begin{equation*}
-	\sigma = \frac{\gamma - 1}{\sqrt{N}} = \frac{-14,17 - 1}{\sqrt{20}} = -3,39
+	\sigma = \frac{\gamma - 1}{\sqrt{N}} = \frac{2,531 - 1}{\sqrt{20}} = 0,34
 	\end{equation*}
 	
 	Now, one would normally iteratively increase $K_{min}$ from $K_{min} = k_{min}$ to $K_{min} = k_{max}$ and then choose $K_{min}$ such that it minimizes the error $\sigma$. Then the resulting power law distribution would fit best to the real distribution. But as the task description states to execute this procedure only for $K_{min} = 10$, we stop here.
