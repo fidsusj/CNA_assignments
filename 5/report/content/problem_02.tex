@@ -52,27 +52,22 @@ Assume a network is generated as follows: We start with $m_0$ initial nodes. Lin
 	
 	Integrate:
 	\begin{equation*}
-		\int_{m}^{k_i(t)} \frac{1}{k_i} \,dk_i = \int_{t_i}^{t} \frac{m}{m_0 + t - 1} \,dt
+		\int_{m}^{k_i(t)} k_i \,dk_i = \int_{t_i}^{t} \frac{m}{m_0 + t - 1} \,dt
 	\end{equation*}
 	
 	Build Antiderivatives $F$ ($f(x) = \frac{n}{x} => F(x) = n * log(x)$) and solve integral by $\int_{a}^{b} f(x) \,dx = F(b) - F(a)$:
 	
 	\begin{equation*}
-		log(k_i(t)) - log(m) = (m * log(m_0 + t - 1)) - (m * log(m_0 + t_i - 1))
+		k_i(t) - m = (m * log(m_0 + t - 1)) - (m * log(m_0 + t_i - 1))
 	\end{equation*}
 	
 	Now extract $m$ on the right side and use log calculation rules $log(u) - log(v) = \frac{log(u)}{log(v)}$
 	
 	\begin{equation*}
-		log(k_i(t)) - log(m) = m * (\frac{log(m_0 + t - 1)}{log(m_0 + t_i - 1)})
+		k_i(t) - m = m * (\frac{log(m_0 + t - 1)}{log(m_0 + t_i - 1)})
 	\end{equation*}
 	
-	Move $log(m)$ to the other side by addition:
-	\begin{equation*}
-		log(k_i(t)) = m * (\frac{log(m_0 + t - 1)}{log(m_0 + t_i - 1)}) + log(m)
-	\end{equation*}
-
-	Remove log from both sides:
+	Move $m$ to the other side by addition:
 	\begin{equation*}
 		k_i(t) = m * (\frac{log(m_0 + t - 1)}{log(m_0 + t_i - 1)}) + m
 	\end{equation*}
