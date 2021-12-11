@@ -18,6 +18,31 @@ by a new participant. The party evolves following these rules:
 
 \begin{enumerate}
 	\item Derive the time evolution of the node degrees, telling us how many dances a node had.
+	
+	The rate at which an existing participant $i$ acquires dance partners is
+	
+	\begin{equation*}
+		 \frac{dk_i}{dt} = 1 - (1 - \Pi(\eta_i)).
+	\end{equation*}
+
+	Using a series expansion and mean-field approximation we receive for $t \rightarrow \infty$
+	
+	\begin{equation*}
+		\frac{dk_i}{dt} = \frac{\eta_i}{\sum_{j=1}^{N-1} \eta_j} \approx \frac{\eta_i}{t \langle \eta \rangle}.
+	\end{equation*}
+
+	By integrating 
+	
+	\begin{equation*}
+		dk_i = \frac{\eta_i}{\langle \eta \rangle} \frac{dt}{t} \Rightarrow \int_{1}^{k_i(t)} dk_i = \frac{\eta_i}{\langle \eta \rangle} \int_{t_i}^{t} \frac{1}{t} dt
+	\end{equation*}
+
+	we obtain
+	
+	\begin{equation*}
+		k_i(t) = \frac{\eta_i}{\langle \eta \rangle} \cdot ln(\frac{t}{t_i}) + 1.
+	\end{equation*}
+	
 	\item Derive the degree distribution of nodes with attractiveness $\eta$.
 	\item If half of the nodes have $\eta=2$, and the other half $\eta=1$ , what is the degree distribution of the network after a sufficiently long time?
 \end{enumerate}
