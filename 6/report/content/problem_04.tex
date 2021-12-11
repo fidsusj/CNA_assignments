@@ -1,0 +1,112 @@
+\section{Problem 6-4 Degree Correlations in Random Graphs}
+
+\begin{enumerate}
+	\item Give an equation for the probability $p(a_{ij} = 1)$ that the edge $(i,j)$ in the graph exists.
+	By rearranging formula (3.3) from the lecture slides and solving for p, we obtain
+	
+	\begin{equation}
+	p(a_{ij} = 1) = \frac{L}{\binom{N}{2}}
+	\end{equation}
+	
+	\item Give equations for the probabilities that an other edge $(i,j)$ exists in the graph, conditioned on the existence of the edge $(x,y)$.
+	If the edge $(x,y)$ does not exist in the graph $L$ edges are remaining to be distributed between the remaining $\binom{N}{2} - 1$ possibilities for edges to be placed between nodes.  If the edge $(x,y)$ does exist there are only $L-1$ edges remaining. Thus, the probabilities are
+	\begin{equation}
+	p(e_{ij}|e_{x,y}=0) = \frac{L}{\binom{N}{2} - 1},
+	\end{equation}
+	
+	and
+	
+	\begin{equation}
+	p(e_{ij}|e_{x,y}=1) = \frac{L - 1}{\binom{N}{2} - 1}.
+	\end{equation}
+	
+	\item Derive the ratio of the conditional probabilities to the probability $p(a_{ij} = 1)$.
+	
+	Plugging in the formulas we got so far,  we get
+	
+	\begin{equation}
+	r_0 =\frac{
+					 \frac{L}{\binom{N}{2} - 1}
+					 }
+					 {
+					 \frac{L}{\binom{N}{2}}
+					 }
+	\end{equation}
+	
+	\begin{equation}
+	= \frac{\binom{N}{2}}{\binom{N}{2} - 1}
+	\end{equation}
+	
+	\begin{equation}
+	= \frac{N(N - 1)}{N(N - 1) - 2}
+	\end{equation}
+	
+	\begin{equation}
+	= \frac{N^2 - N}{N^2 - N - 2}
+	\end{equation}
+	
+	and 
+	
+	\begin{equation}
+	r_1 = \frac{
+					 \frac{L - 1}{\binom{N}{2} - 1}
+					 }
+					 {
+					 \frac{L}{\binom{N}{2}}
+					 }
+	\end{equation}
+	
+	\begin{equation}
+	= \frac{
+			L \cdot \binom{N}{2} - \binom{N}{2}
+		}
+		{
+			L \cdot \binom{N}{2} - L		
+		}
+	\end{equation}
+	
+	\begin{equation}
+	= \frac{
+			\frac{
+				LN(N - 1) - N(N - 1)
+			}
+			{
+				2
+			}		
+		}
+		{
+			\frac{
+				LN(N - 1) - 2L
+			}
+			{
+				2
+			}	
+		}
+	\end{equation}
+	
+	\begin{equation}
+	= \frac{
+			LN^2 - N^2 - LN + N
+		}{
+			LN^2 - LN - 2L
+		}
+	\end{equation}
+	
+	\item Give the ratios $r'_0$ and $r'_1$ for the $G(N,p)$ model.
+	
+	In the $G(N,p)$ model, the probability of every edge to be realized is determined by $p$. Edge probabilities are not dependent on other edges. This means
+	
+	\begin{equation}
+		p(a_{ij} = 1) = p(e_{ij}|e_{x,y}=0) = p(e_{ij}|e_{x,y}=1),
+	\end{equation}
+	
+	and thus
+	
+	\begin{equation}
+		r'_0 = r'_1 = 1
+	\end{equation}
+	
+	\item Discuss the implications of using the $G(N,L)$ instead of the $G(N,p)$ model. 
+	
+	For small networks, in the $G(N, p)$ model, the probability of an edge to exist is the same as in a network with many nodes. In the $G(N, L)$ model, the probability of an edge to exist is higher (if $L$ is kept the same) than in a large network mit many nodes.  This is because there are less possible realizations of $G$, if the number of nodes is small and the probability of an edge to exist is dependent on the existence of other edges in the $G(N,L)$ model.  If we look at the ratios $r_0$ and $r_1$, we can also see that for $L$ being the same, but $N$ getting small, $r_1$ decreases faster than $r_0$ ($-2L$ instead of $-2$ in the denominator, with the other terms decreasing for $N$ decreasing (does not go to zero)).
+\end{enumerate}
