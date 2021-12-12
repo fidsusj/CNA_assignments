@@ -40,9 +40,37 @@ by a new participant. The party evolves following these rules:
 	we obtain
 	
 	\begin{equation*}
-		k_i(t) = \frac{\eta_i}{\langle \eta \rangle} \cdot ln(\frac{t}{t_i}) + 1.
+		k_i(t, \eta_i) = \frac{\eta_i}{\langle \eta \rangle} \cdot ln(\frac{t}{t_i}) + 1.
 	\end{equation*}
 	
 	\item Derive the degree distribution of nodes with attractiveness $\eta$.
+	
+	To build the cumulative degree distribution function, we first need to derive the time constraint when a participant must have entered the $t$-party to have at least $k$ dances.
+	
+	\begin{equation*}
+		\begin{split}
+			k_i(t, \eta_i) = \frac{\eta_i}{\langle \eta \rangle} \cdot ln(\frac{t}{t_i}) + 1 > k \\
+			t_i < t - e^{\frac{(k - 1) \langle \eta \rangle}{\eta_i}} = N_{>k}^{fixed}
+		\end{split}
+	\end{equation*}
+
+	We know that the number of such participants (here as a continuous number) who had at least $k$ dances is given by the above time constraint as only one participant joins the $t$-party at every time step. Thus the cumulative degree distribution function is given by
+	
+	\begin{equation*}
+		\begin{split}
+			P(k_i < k) = 1 - P(k_i > k) = 1 - \frac{N_{>k}}{N} = - \frac{1}{t} \int_{\eta_{min}}^{\eta_{max}} e^{\frac{(k - 1) \langle \eta \rangle}{\eta_i}} d\eta.
+		\end{split}
+	\end{equation*}
+	
+	Note that we needed to average over the fitness/attractiveness distribution and that $N \approx t$ for $t \rightarrow \infty$. 
+	
+	To receive the degree distribution function we take the derivative of the cumulative degree distribution function and get
+	
+	\begin{equation*}
+		\begin{split}
+			p_k = \frac{dP(k)}{dk} = - \frac{1}{t} \int_{\eta_{min}}^{\eta_{max}} \frac{\langle \eta \rangle}{\eta_i} e^{\frac{(k - 1) \langle \eta \rangle}{\eta_i}} d\eta.
+		\end{split}
+	\end{equation*}
+	
 	\item If half of the nodes have $\eta=2$, and the other half $\eta=1$ , what is the degree distribution of the network after a sufficiently long time?
 \end{enumerate}
