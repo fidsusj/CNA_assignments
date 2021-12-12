@@ -73,4 +73,13 @@ by a new participant. The party evolves following these rules:
 	\end{equation*}
 	
 	\item If half of the nodes have $\eta=2$, and the other half $\eta=1$ , what is the degree distribution of the network after a sufficiently long time?
+	
+	\begin{equation*}
+		\begin{split}
+			p_k = \frac{1}{t} (0.75e^{0.75(k - 1)} - 1.5e^{1.5(k - 1)}).
+		\end{split}
+	\end{equation*}
+
+	Intuitively, there should only be very small degree nodes in the network as each dancers' fitness becomes neglectible if $t \rightarrow \infty$. This partly becomes visible in the above formula as the inverse relation from $p_k$ to $t$ pushes the probability of any degree node to 0. Of course this should not hold for small degree nodes, which is why we guess that there might still be an error in the formula of $p_k$. 
+	
 \end{enumerate}
