@@ -2,6 +2,7 @@
 
 \begin{enumerate}
 	\item Give an equation for the probability $p(a_{ij} = 1)$ that the edge $(i,j)$ in the graph exists.
+	
 	By rearranging formula (3.3) from the lecture slides and solving for p, we obtain
 	
 	\begin{equation}
@@ -9,7 +10,9 @@
 	\end{equation}
 	
 	\item Give equations for the probabilities that an other edge $(i,j)$ exists in the graph, conditioned on the existence of the edge $(x,y)$.
+	
 	If the edge $(x,y)$ does not exist in the graph $L$ edges are remaining to be distributed between the remaining $\binom{N}{2} - 1$ possibilities for edges to be placed between nodes.  If the edge $(x,y)$ does exist there are only $L-1$ edges remaining. Thus, the probabilities are
+	
 	\begin{equation}
 	p(e_{ij}|e_{x,y}=0) = \frac{L}{\binom{N}{2} - 1},
 	\end{equation}
