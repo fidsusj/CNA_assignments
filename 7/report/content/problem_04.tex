@@ -25,9 +25,52 @@ networks do not exhibit any degree correlation.
 			0 & \text{otherwise.}
 		\end{cases}
 	\end{equation*}
-
 \end{enumerate}
 
+\noindent
 Discuss the consequences of your results for network robustness.
 
-\textit{Hint:} You may use the first and second moment from the lecture or other literature without a proof
+\noindent
+\textit{Hint:} You may use the first and second moment from the lecture or other literature without a proof. \newline
+
+\noindent
+We know $f_c$ can be calculated by:
+
+\begin{equation*}
+	f_c = 1 - \frac{1}{\frac{\langle k^2 \rangle}{\langle k \rangle} - 1}
+\end{equation*}
+
+\begin{enumerate}
+	\item For the poisson distribution, we receive:
+	
+	\begin{equation*}
+		f_c = 1 - \frac{1}{\frac{\mu^2 + \mu}{\mu} - 1} = 1 - \frac{1}{\mu}
+	\end{equation*}
+
+	This means the higher $\mu$ the more robust the network is towards random failures. If $\mu \rightarrow \infty$ we receive maximum robustness as all nodes would theoretically need to fail for the network to be considered fragmented (even if this does not make sense since there would not be a network present anymore).
+
+	\item For the discrete exponential distribution, we receive (using Wolfram Alpha):
+
+	\begin{equation*}
+			\langle k \rangle = \frac{(1 - e^{-\lambda})}{\lambda^2}
+	\end{equation*}
+
+	\begin{equation*}
+		\langle k^2 \rangle = \frac{2(1 - e^{-\lambda})}{\lambda^3}
+	\end{equation*}
+
+	\begin{equation*}
+		f_c = 1 - \frac{1}{\frac{2}{\lambda} - 1}
+	\end{equation*}
+
+	This means the lower $\lambda$ the more robust the network is towards random failures. If $\lambda \rightarrow 0$ we receive maximum robustness. 
+
+	\item For the dirac delta distribution, we receive:
+
+	\begin{equation*}
+		f_c = 1 - \frac{1}{\frac{k_0^2}{k_0} - 1} =  1 - \frac{1}{k_0 - 1}
+	\end{equation*}
+
+	Similar to the poisson distribution, the dirac delta distribution becomes more robust towards random failures the higher $k_0$ is. This becomes maximum for clique like structures. 
+
+\end{enumerate}
