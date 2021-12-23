@@ -1,0 +1,33 @@
+\section{Problem 7-4 Random Failures in Uncorrelated Networks}
+
+Compute the critical threshold $f_c$ for each of the following degree distributions, under the assumption that the
+networks do not exhibit any degree correlation.
+
+\begin{enumerate}
+	\item Poisson distribution, i.e.,
+	
+	\begin{equation*}
+		p_k = e^{-\mu}\frac{\mu^k}{k!}
+	\end{equation*}
+
+	\item Discrete exponential distribution, i.e.,
+	
+	\begin{equation*}
+		p_k = (1 - e^{-\lambda})e^{-\lambda k}
+	\end{equation*}
+
+	\item Dirac delta distribution, i.e.,
+	
+	\begin{equation*}
+		p_k = \delta_{k,k_0} = 
+		\begin{cases}
+			1 & \text{if $k = k_0$,} \\
+			0 & \text{otherwise.}
+		\end{cases}
+	\end{equation*}
+
+\end{enumerate}
+
+Discuss the consequences of your results for network robustness.
+
+\textit{Hint:} You may use the first and second moment from the lecture or other literature without a proof
