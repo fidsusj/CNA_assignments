@@ -2,14 +2,14 @@
 
 Consider a configuration model network that has nodes of degree 1, 2, and 3 only, with probabilities $p_1$, $p_2$, and $p_3$, respectively. The degree distribution is given by:
 
-\begin{equation*}
+\begin{equation} \label{eq}
 	p_k = \delta_{k,1} p_1 + \delta_{k,2} p_2 + \delta_{k,3} p_3, 
 	\begin{cases}
 		\delta_{k,1} = 3 & \text{if $k = 1$} \\
 		\delta_{k,2} = 2 & \text{if $k = 2$} \\
 		\delta_{k,3} = 2 & \text{if $k = 3$}
 	\end{cases}
-\end{equation*}
+\end{equation}
 
 \begin{enumerate}
 	\item Compute the first moment $\langle k \rangle$ and the second moment $\langle k^2 \rangle$ of the degree distribution.
@@ -17,27 +17,38 @@ Consider a configuration model network that has nodes of degree 1, 2, and 3 only
 	We assume $\delta_{k,k'}$ to be the dirac-delta-function. For the first and second moment is follows:
 	
 	\begin{equation*}
-			\langle k \rangle = \sum_{k = 1}^3 k p_k = 3p_1 + 4p_2 + 6p_3
+		\langle k \rangle = \sum_{k = 1}^3 k p_k = 1p_1 + 2p_2 + 3p_3 = 3p_1 + 4p_2 + 6p_3
 	\end{equation*}
 
 	\begin{equation*}
-			\langle k^2 \rangle = \sum_{k = 1}^3 k^2 p_k = 3p_1 + 8p_2 + 18p_3
+		\langle k^2 \rangle = \sum_{k = 1}^3 k^2 p_k = 1p_1 + 4p_2 + 9p_3 = 3p_1 + 8p_2 + 18p_3
 	\end{equation*}
+	
+	Note that we substitute $p_1$ with $3p_1$, $p_2$ with $2p_2$ and $p_3$ with $2p_3$ as given by equation \ref{eq} (slightly confusing by the task description).
 	
 	\item Using the Molloy-Reed criterion, show that there is a giant component if and only if $p_1 < 3p_3$.
 	
 	The Molloy-Reed criteria propagates a giant component exists in case $\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle} > 2$. $\kappa$ can be calculated as:
 	
 	\begin{equation*}
+		\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle} = \frac{1p_1 + 4p_2 + 9p_3}{1p_1 + 2p_2 + 3p_3}
+	\end{equation*}
+
+	which is only true for 
+	
+	\begin{equation*}
 		\begin{split}
-			\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle} = \frac{3p_1 + 8p_2 + 18p_3}{3p_1 + 4p_2 + 6p_3}
+			\frac{1p_1 + 4p_2 + 9p_3}{1p_1 + 2p_2 + 3p_3} > 2 \\
+			1p_1 + 4p_2 + 9p_3 > 2p_1 + 4p_2 + 6p_3 \\
+			3p_3 > p_1 \\
 		\end{split}
 	\end{equation*}
 
-	One way for $\kappa$ being greater than 2 is when all components of the sum in the numerator are at least twice as big as the matching component of the sum in the denominator (with one component being slightly bigger than twice as big for $\kappa$ being strictly bigger than 2). This means $6p_3 > 3p_1$ and therefore $2p_3 > p_1$. We therefore assume the thesis in the task desciption is wrong. 
+	Note that we use the LHS declaration of $p_k$ from equation \ref{eq}.
 	
-	\item In terms of the structure of the network, discuss the meaning of the condition $p_3 < 3p_1$. Why does the result not depend on $p_2$?
+	\item In terms of the structure of the network, discuss the meaning of the condition $p_1 < 3p_3$. Why does the result not depend on $p_2$?
 	
-	The fact that in the calculation of $\kappa$ the component of $p_2$ already goes in twice as big in the numerator ($8p_2 > 4p_2$), makes the goal of $\kappa > 2$ only dependent on the scale of $p_1$ compared to $p_3$. If $p_3 < 3p_1$ holds, a giant component only exists in case $\frac{1}{3}p_3 < p_1 < 2p_3$. Other than that, we cannot really see what $p_3 < 3p_1$ should lead to.
+	For the network to have a giant component, the probability of a node having a single degree should be at most three times as high as the probability of a node having a degree of three. This limits the amount of single degree nodes and promotes a faster growth of a giant component since the average degree will most likely not be close to $\langle k \rangle = 1$ , but rather higher (assuming we exclude isolated nodes as in equation \ref{eq}) since single degree nodes cannot prevail the network. 
 	
+	The probability $p_2$ fell apart from the equation shown in subtask 2, leading to the assumption that the emergence of a giant component does not need to be dependent on $p_2$. This makes sense since we know the constraint $p_1 < 3p_3$ holds, which already leads to the corollar that $\langle k \rangle \ge 1$ and therefore leads to the guaranteed emergence of a giant component.
 \end{enumerate}
