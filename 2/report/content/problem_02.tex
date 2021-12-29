@@ -15,7 +15,7 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	\item What is the diameter $d_{max}$ of the graph?
 	\vspace{0.25cm}
 	
-	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front $(1,1,1)$ to the right lower edge in the back $(\ell,\ell,\ell)$. The diameter is therefore $d_{max} = 3(\ell-1)$ (-1, because the corner nodes are not counted twice).
+	The diameter is the longest shortest path in the graph. One example for a longest shortest path is the distance from the left upper edge in the front $(1,1,1)$ to the right lower edge in the back $(\ell,\ell,\ell)$. The diameter is therefore $d_{max} = 3(\ell-1)$ (-1, because we count edges, not nodes).
 	
 	\item Provide an expression (in terms of $N$ and/or $\ell$) for the probability $p_i$ that a randomly chosen node has degree $i$. You may assume that $\ell \geq 3$. What are the consequences for $N \rightarrow \infty$?
 	\vspace{0.25cm}
@@ -44,32 +44,8 @@ Consider an undirected network $G = (V,E)$ with $N = \ell^3$ nodes corresponding
 	\label{tab:node_distribution}
 	\end{table}
 
-	Secondly the expressions for the probability distribution are derived based on the following formula with $N=\ell^3$ and $p=\frac{\#nodes}{\ell^3}$:
-	
-	\begin{equation*}
-		p_k = {{N-1}\choose{k}} * p^k * (1-p)^{N-1-k}
-	\end{equation*}
-	
-	For inner nodes with $i=6$:
-	\begin{equation*}
-		p_6 = {{\ell^3-1}\choose{6}} * (\frac{(\ell-2)^2}{\ell^3})^6 * (1-{\frac{(\ell-2)^2}{\ell^3}})^{\ell^3-1-6}
-	\end{equation*}
-	
-	For corner nodes with $i=3$:
-	\begin{equation*}
-		p_3 = {{\ell^3-1}\choose{3}} * ({\frac{8}{\ell^3}})^3 * (1-{\frac{8}{\ell^3}})^{\ell^3-1-3}
-	\end{equation*}
-	
-	For edge nodes with $i=4$:
-	\begin{equation*}
-		p_4 = {{\ell^3-1}\choose{4}} * ({\frac{12(\ell - 2)}{\ell^3}})^4 * (1-{\frac{12(\ell - 2)}{\ell^3}})^{\ell^3-1-4}
-	\end{equation*}
-	
-	For outer nodes with $i=5$:
-	\begin{equation*}
-		p_5 = {{\ell^3-1}\choose{5}} * ({\frac{6\ell^2 - 12(\ell - 2) - 8}{\ell^3}})^5 * (1-{\frac{6\ell^2 - 12(\ell - 2) - 8}{\ell^3}})^{\ell^3-1-5}
-	\end{equation*}
-	
+	Secondly the expressions for the probability distribution can simply be derived based on the formula $p=\frac{\#nodes}{\ell^3}$.
+		
 	For $N \rightarrow \infty$ also $\ell \rightarrow \infty$, that is why the probability for an inner node increases and the probability for a corner, edge or outer node decreases. This means the average degree converges to 6 (probability $p_k$ for $k=6$ converges to 1).
 	
 	\item What is (i) the clustering coefficient of a node i and (ii) the average clustering coefficient of this network?
