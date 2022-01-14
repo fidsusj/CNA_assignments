@@ -1,7 +1,20 @@
 \section*{Problem 8-3 Modularity}
 
+Consider a simple, undirected graph $G$ with $L$ links between $n$ nodes that are partitioned into $n_c$ disjoint communities $C$. Let $L_c$ be the number of links inside a given community $c$. Furthermore, let $k_c$ be the sum of all degrees of nodes in community $c$ (including edges that leave the community). Then the modularity $M$ is defined as
+
+\begin{equation}
+	M(G,C) := \sum_{c=1}^{n_c} ( \frac{L_c}{L} - (\frac{k_c}{2L})^2 )
+\end{equation}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{content/problem3.png}
+	\label{distribution}
+\end{figure}
+
 \begin{enumerate}
 	\item Compute the modularity of the graph.
+	\hrule \relax
 	\begin{itemize}
 		\item $L = 15$
 		\item $n = 10$
@@ -9,15 +22,23 @@
 		\item $L_A = 5 ; L_B = 2 ; L_C = 3$
 		\item $k_A = 3 + 3 + 3 + 4 = 13 ; k_B = 2 + 4 + 3 = 9 ; k_C = 3 + 2 + 3 = 8$
 	\end{itemize}
+
+	Plug the values into the given formula:
+	\begin{equation}
+		M(G,C) := ( \frac{5}{15} - (\frac{13}{2*15})^2 ) + 
+		( \frac{2}{15} - (\frac{9}{2*15})^2 ) + 
+		( \frac{3}{15} - (\frac{8}{2*15})^2 ) = 0.318
+	\end{equation}
 	
-	Plugging this values into the given equation, we get $M(G,C) = 0.318$.
-	
+	\hrule \relax
 	\item Give proof that for every partitioning of every simple graph, it always holds that $M \leq 1$.
+	\hrule \relax
 	
-	For each component, its links within itself can be at most $L_c = L$. In this case, the component would hold all the links of the graph. For this component $\frac{L_c}{L}$ would be 1.  Since there is the term $\frac{k_c}{2L}^2$ subtracted from that, the summand for this component in the equation cannot be greater than 1. All other components remaining in the graph cannot have any links, which means that these are just unconnnected single nodes.  This means that their summand in the equation (ignorring the division by zero) would be 0. The whole equation thus cannot be greater than 1.
+	For each component, its links within itself can be at most $L_c = L$. In this case, the component would hold all the links of the graph. For this component $\frac{L_c}{L}$ would be 1.  Since there is the term $\frac{k_c}{2L}^2$ subtracted from that, the summand for this component in the equation cannot be greater than 1. All other components remaining in the graph cannot have any links, which means that these are just unconnected single nodes.  This means that their summand in the equation (ignoring the division by zero) would be 0. The whole equation thus cannot be greater than 1.
 	
 	For other cases where there are multiple components containing links, the total number of $L_c$ for all components is still limited by $L$. Thus it has to hold that $\sum^{n_c}_{c=1}(\frac{L_c}{L}) \leq 1$. Since the other term in each summand ($\frac{k_c}{2L}^2$) can only decrease the overall sum, $M \leq 1$ has to hold.
 	
 	For the trivial case of all nodes being disconnected, $M = 0$ (ignoring the division by 0).
 	
+	\hrule \relax	
 \end{enumerate}
