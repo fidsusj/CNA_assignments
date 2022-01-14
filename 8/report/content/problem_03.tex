@@ -1,45 +1,23 @@
 \includepdf[pages=-]{pdfs/problem_3.pdf}
 
 \begin{enumerate}
-	\item Compute the degree correlation matrix.
+	\item Compute the modularity of the graph.
+	\begin{itemize}
+		\item $L = 15$
+		\item $n = 10$
+		\item $n_c = 3$
+		\item $L_A = 5 ; L_B = 2 ; L_C = 3$
+		\item $k_A = 3 + 3 + 3 + 4 = 13 ; k_B = 2 + 4 + 3 = 9 ; k_C = 3 + 2 + 3 = 8$
+	\end{itemize}
 	
-	We computed the degree correlation matrix using networkx using inbuild functions (since it is repetitive).  The manual process would be to calculate for each cell of the matrix the fraction of edges which connect nodes with the correct degree of $i$ and $j$.  For example,  in the graph only one edge connects nodes which have the degree $1$ and $3$ with each other.  There are a total of $4$ edges in the graph.  Normalized, so that $E$ sums up to $1$ (and since $e_{ij}$ as well as $e_{ji}$ are always taken into account) the cells $e_{1,3}$ and $e_{3,1}$ have a value of $0.125$. The same process goes for the remaining cells. The degree correlation matrix is shown in Table \ref{tab:deg_corr_mat}.
+	Plugging this values into the given equation, we get $M(G,C) = 0.318$.
 	
-	\begin{table}[h]
-	\centering
-	\begin{tabular}{lllll}
-		\hline
-		\textbf{}  & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} \\ \hline
-		\textbf{0} & 0          & 0          & 0          & 0          \\ \hline
-		\textbf{1} & 0          & 0          & 0          & 0.125      \\ \hline
-		\textbf{2} & 0          & 0          & 0.25       & 0.25       \\ \hline
-		\textbf{3} & 0          & 0.125      & 0.25       & 0          \\ \hline
-	\end{tabular}
-	\caption{Degree Correlation Matrix}
-	\label{tab:deg_corr_mat}
-	\end{table}
+	\item Give proof that for every partitioning of every simple graph, it always holds that $M \leq 1$.
 	
-	\item Compute the probabilities $q_k$.
+	For each component, its links within itself can be at most $L_c = L$. In this case, the component would hold all the links of the graph. For this component $\frac{L_c}{L}$ would be 1.  Since there is the term $\frac{k_c}{2L}^2$ subtracted from that, the summand for this component in the equation cannot be greater than 1. All other components remaining in the graph cannot have any links, which means that these are just unconnnected single nodes.  This means that their summand in the equation (ignorring the division by zero) would be 0. The whole equation thus cannot be greater than 1.
 	
-	We used formula 7.3 from the lecture slides.  The results are shown in Table \ref{tab:qk}
+	For other cases where there are multiple components containing links, the total number of $L_c$ for all components is still limited by $L$. Thus it has to hold that $\sum^{n_c}_{c=1}(\frac{L_c}{L}) \leq 1$. Since the other term in each summand ($\frac{k_c}{2L}^2$) can only decrease the overall sum, $M \leq 1$ has to hold.
 	
-	\begin{table}[h]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		\textbf{$k$} & \textbf{$q_k$} \\ \hline
-		0          & 0.000         \\ \hline
-		1          & 0.125         \\ \hline
-		2          & 0.500         \\ \hline
-		3          & 0.375         \\ \hline
-	\end{tabular}
-	\caption{}
-	\label{tab:qk}
-	\end{table}
-
-  \item Compute the degree correlation coefficient r.
-  
-  Our solution is $r = -0.714$. We used formula $7.11$ from the lecture slides. 
-  
-  Since $r < 0$, the network is disassortative.
+	For the trivial case of all nodes being disconnected, $M = 0$ (ignoring the division by 0).
+	
 \end{enumerate}
