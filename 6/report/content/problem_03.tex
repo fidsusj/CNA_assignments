@@ -18,10 +18,30 @@
 	\caption{Degree Correlation Matrix}
 	\label{tab:deg_corr_mat}
 	\end{table}
+
+	Manual approach from the tutorial (same results):
+	
+	Node degrees: $ k = \{2,3,1,2\}$
+
+	Edge list (get it from the adjacency matrix): $\{(1,2), (1,4), (2,3), (2,4)\}$
+	
+	Degree list (insert degree $k$ of the node into the edge list): $\{(2,3), (2,2), (3,2), (3,1)\}$
+	
+	=> So two edges exist connecting nodes with degree $(2,3)$, one edge for $(2,2)$ (twice due to symmetry), one edge for $(3,1)$. This is inserted into E and normalized by the sum of all degrees $k$ ($8$).
+	
+	$
+	E = \frac{1}{8} \cdot \begin{blockarray}{cccc}
+		k=1 & k=2 & k=3 \\
+		\begin{block}{(ccc)c}
+			0 & 0 & 1 & k=1 \\
+			0 & 2 & 2 & k=2 \\
+			1 & 2 & 0 & k=3 \\
+		\end{block}
+	\end{blockarray}$
 	
 	\item Compute the probabilities $q_k$.
 	
-	We used formula 7.3 from the lecture slides.  The results are shown in Table \ref{tab:qk}
+	We used formula 7.3 from the lecture slides ($q_k = \frac{k \cdot p_k}{<k>}$).  The results are shown in Table \ref{tab:qk}
 	
 	\begin{table}[h]
 	\centering
@@ -29,9 +49,9 @@
 		\hline
 		\textbf{$k$} & \textbf{$q_k$} \\ \hline
 		0          & 0.000         \\ \hline
-		1          & 0.125         \\ \hline
-		2          & 0.500         \\ \hline
-		3          & 0.375         \\ \hline
+		1          & $q_k = \frac{1 \cdot 0,25}{2} = 0.125$ \\ \hline
+		2          & $q_k = \frac{2 \cdot 0,5}{2} = 0.500$  \\ \hline
+		3          & $q_k = \frac{3 \cdot 0,25}{2} = 0.375$  \\ \hline
 	\end{tabular}
 	\caption{}
 	\label{tab:qk}
