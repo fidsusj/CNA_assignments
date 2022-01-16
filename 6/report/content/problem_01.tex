@@ -19,25 +19,25 @@ by a new participant. The party evolves following these rules:
 \begin{enumerate}
 	\item Derive the time evolution of the node degrees, telling us how many dances a node had.
 	
-	The rate at which an existing participant $i$ acquires dance partners is
+	The rate at which an existing participant $i$ acquires dance partners is (based on equation 5.2 from slide 5-8)
 	
 	\begin{equation*}
 		 \frac{dk_i}{dt} = 1 - (1 - \Pi(\eta_i)).
 	\end{equation*}
 
-	Using a series expansion and mean-field approximation we receive for $t \rightarrow \infty$
+	Using a series expansion and mean-field approximation we receive for $t \rightarrow \infty$ (based on equation 5.3 from slide 5-8)
 	
 	\begin{equation*}
 		\frac{dk_i}{dt} \approx \frac{\eta_i}{\sum_{j=1}^{N-1} \eta_j} = \frac{\eta_i}{t \langle \eta \rangle}.
 	\end{equation*}
 
-	By integrating 
+	By integrating (as shown on slide 5-9 equation 5.4)
 	
 	\begin{equation*}
 		dk_i = \frac{\eta_i}{\langle \eta \rangle} \frac{dt}{t} \Rightarrow \int_{1}^{k_i(t)} dk_i = \frac{\eta_i}{\langle \eta \rangle} \int_{t_i}^{t} \frac{1}{t} dt
 	\end{equation*}
 
-	we obtain
+	we obtain (as shown on slide 5-9 equation 5.5)
 	
 	\begin{equation*}
 		k_i(t, \eta_i) = \frac{\eta_i}{\langle \eta \rangle} \cdot ln(\frac{t}{t_i}) + 1.
@@ -45,7 +45,7 @@ by a new participant. The party evolves following these rules:
 	
 	\item Derive the degree distribution of nodes with attractiveness $\eta$.
 	
-	To build the cumulative degree distribution function, we first need to derive the time constraint when a participant should have entered the $t$-party the earliest to have at most $k$ dances.
+	To build the cumulative degree distribution function, we first need to derive the time constraint when a participant should have entered the $t$-party the earliest to have at most $k$ dances. (as shown on slide 5-14 equation 5.8)
 	
 	\begin{equation*}
 		\begin{split}
@@ -55,7 +55,7 @@ by a new participant. The party evolves following these rules:
 		\end{split}
 	\end{equation*}
 
-	We know that the number of such participants (here as a continuous number) who had at most $k$ dances is given by $N_{<k} = t - t_i$ (as only one participant joins the $t$-party at every time step) with $t_i$ being derived from the above time constraint. Thus the cumulative degree distribution function is given by
+	We know that the number of such participants (here as a continuous number) who had at most $k$ dances is given by equation 5.9 on slide 5-14 $N_{<k} = t - t_i$ (as only one participant joins the $t$-party at every time step) with $t_i$ being derived from the above time constraint. Thus the cumulative degree distribution function is given by (like equation 5.10 on slide 5-15)
 	
 	\begin{equation*}
 		\begin{split}
@@ -65,7 +65,7 @@ by a new participant. The party evolves following these rules:
 	
 	Note that we needed to average over the fitness/attractiveness distribution and that $N \approx t$ for $t \rightarrow \infty$. 
 	
-	To receive the degree distribution function we take the derivative of the cumulative degree distribution function and get
+	To receive the degree distribution function we take the derivative of the cumulative degree distribution function and get (like equation 5.11 on slide 5-15)
 	
 	\begin{equation*}
 		\begin{split}

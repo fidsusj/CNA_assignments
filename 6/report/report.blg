@@ -1,7 +1,7 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'report.blg'
-[64] biber:340> INFO - === Sa Jan 15, 2022, 11:58:28
-[77] Biber.pm:415> INFO - Reading 'report.bcf'
+[65] biber:340> INFO - === So Jan 16, 2022, 11:09:45
+[78] Biber.pm:415> INFO - Reading 'report.bcf'
 [138] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
 [143] Utils.pm:395> WARN - The file 'report.bcf' does not contain any citations!
 [150] bbl.pm:654> INFO - Writing 'report.bbl' with encoding 'latin1'
